@@ -1,0 +1,46 @@
+/* Создать список(лист) из N элементов, вывести на экран.
+Удалить из списка эл-ты, кратные 5 и 3. Снова вывести на экран.
+*/
+
+#include "windows.h"
+#include <iostream>
+#include <list>
+using namespace std;
+
+bool pos5(int k)
+{
+  if (k%5 == 0) return true;
+  else return false;
+}
+
+bool pos3(int k)
+{
+  if (k%3 == 0) return true;
+  else return false;
+}
+
+int main()
+{
+  list <int> l;
+  list <int>::iterator p;
+  int n;
+  cout << "Number elem: ";
+  cin >> n;
+  int a;
+  for (int i = 0; i < n; i++)
+  {
+    cin >> a;
+    l.push_back(a);
+  }
+  for (p=1.begin(); p!=1.end();p++)
+  {
+    cout << *p << " ";
+  }
+  l.remove_if(pos5);
+  l.remove_if(pos3);
+  cout << endl;
+  for (p=1.begin(); p!=1.end();p++)
+  {
+    cout << *p << " ";
+  }
+}
