@@ -1,0 +1,29 @@
+# Написать эффективную программу, которая будет составлять протокол и определять призёров и самого победителя.
+# Необходимо вывести имя участника и его значение, которое является результатом.
+
+def score_key():
+  return (a[1][0] * 10000000 - a[1][1])
+
+table = {}
+number_row = int(input("Кол-во протоколов: "))
+
+print("Введите результат, а затем имя участника: ")
+
+for i in range(number_row):
+  ball, name = input('{0} запись:'.format(i + 1)).split
+  ball = int(ball)
+  if name in table:
+    if ball > table[name][0]:
+      table[name][0] = ball
+      table[name][1] = i
+  else:
+    table[name] = [ball, i]
+    
+scores = list(table.items())
+scores.sort(key = score_key, reverse = True)
+
+print('\nИтоги и результаты: ')
+
+for winner in 0, 1, 2:
+  print(f'{winner+1} место {scores[winner][0]} ', sep = '')
+  print(f'( {scores[winner][1][0]})', sep = '')
